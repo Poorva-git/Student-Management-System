@@ -13,6 +13,11 @@ from marks import (
     view_marks
 )
 
+from attendance import (
+    add_attendance,
+    view_attendance
+)
+
 
 def menu():
     while True:
@@ -27,7 +32,9 @@ def menu():
         print("5. Delete Student")
         print("6. Add Marks")
         print("7. View Marks")
-        print("8. Exit")
+        print("8. Add Attendance")
+        print("9. View Attendance")
+        print("10. Exit")
 
         choice = input("\nEnter your choice: ")
 
@@ -53,6 +60,12 @@ def menu():
             view_marks()
 
         elif choice == "8":
+            add_attendance()
+
+        elif choice == "9":
+            view_attendance()
+
+        elif choice == "10":
             print("\nThank you for using Student Management System!")
             break
 
