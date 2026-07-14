@@ -1,15 +1,14 @@
 import sqlite3
 
-
 DATABASE = "students.db"
 
 
 def create_database():
     conn = sqlite3.connect(DATABASE)
-
     cursor = conn.cursor()
 
-    # Student Table
+    # ---------------- Students ---------------- #
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS students(
         roll_no INTEGER PRIMARY KEY,
@@ -21,7 +20,8 @@ def create_database():
     )
     """)
 
-    # Marks Table
+    # ---------------- Marks ---------------- #
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS marks(
         roll_no INTEGER PRIMARY KEY,
@@ -36,7 +36,8 @@ def create_database():
     )
     """)
 
-    # Attendance Table
+    # ---------------- Attendance ---------------- #
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS attendance(
         roll_no INTEGER PRIMARY KEY,
@@ -47,7 +48,8 @@ def create_database():
     )
     """)
 
-    # Login Table
+    # ---------------- Users ---------------- #
+
     cursor.execute("""
     CREATE TABLE IF NOT EXISTS users(
         username TEXT PRIMARY KEY,
@@ -56,7 +58,8 @@ def create_database():
     )
     """)
 
-    # Default Admin Account
+    # Default Admin
+
     cursor.execute("""
     INSERT OR IGNORE INTO users(username,password,role)
     VALUES('admin','admin123','Admin')
@@ -64,9 +67,3 @@ def create_database():
 
     conn.commit()
     conn.close()
-
-    print("Database Created Successfully!")
-
-
-if __name__ == "__main__":
-    create_database()
